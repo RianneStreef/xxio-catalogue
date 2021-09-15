@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 
 import { StaticImage } from "gatsby-plugin-image";
+import headerDemoDay from "../images/Header-Demoday.jpeg";
 
 import "../styles/index.css";
 
@@ -10,9 +11,10 @@ const IndexPage = (props) => {
 
   const categoriesList = categories.map((category) => {
     return (
-      <Link to={category.slug} key={category.id}>
-        <h2>{category.categoryTitle}</h2>
+      <Link to={category.slug} key={category.id} className="category-list-link">
+        <h2 className="category-list-title">{category.categoryTitle}</h2>
         <img
+          className="category-list-image"
           src={category.categoryImage.file.url}
           alt={category.categoryImageAlt}
         />
@@ -23,7 +25,17 @@ const IndexPage = (props) => {
   return (
     <div className="categories-page">
       <StaticImage src="../images/logo.jpg" alt="Srixon Logo" />
-      <div className="categories-list">{categoriesList}</div>
+      <div className="categories-list">
+        {categoriesList}
+        <Link to="/demo-day" className="category-list-link">
+          <h2 className="category-list-title">Demo Day</h2>
+          <img
+            src={headerDemoDay}
+            alt="Srixon Demo Days"
+            className="category-list-image"
+          />
+        </Link>
+      </div>
     </div>
   );
 };

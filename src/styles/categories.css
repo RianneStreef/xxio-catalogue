@@ -1,0 +1,8 @@
+.product-listing {
+  display: flex;
+  
+}
+
+.product-list-image {
+  width: 10%;
+}

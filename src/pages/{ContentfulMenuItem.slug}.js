@@ -1,6 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import ballMatrix from "../images/Golf-Ball-MATRIX-v3.jpg";
+
+import "../styles/categories.css";
+
 const CategoryPage = (props) => {
   console.log(props.params);
 
@@ -34,12 +38,13 @@ const CategoryPage = (props) => {
     .filter((product) => product.productCategory === slug)
     .map((product) => {
       return (
-        <div key={product.id}>
+        <div key={product.id} className="product-listing">
           <img
+            className="product-list-image"
             src={product.productImage.file.url}
             alt={product.productImageAlt}
           />
-          <h4>{product.productName}</h4>
+          <h4 className="product-list-title">{product.productName}</h4>
         </div>
       );
     });
@@ -47,7 +52,20 @@ const CategoryPage = (props) => {
   return (
     <>
       <div>{categoryInfo}</div>
-      <div className="product-list">{productList}</div>
+      <div className="product-list">
+        {slug === "balls" ? (
+          <div className="product-listing">
+            <img
+              className="product-list-image"
+              src={ballMatrix}
+              alt="Srixon Golf Ball Matrix"
+            />
+            <h4 className="product-list-title">Srixon Golf Ball Matrix</h4>
+          </div>
+        ) : null}
+
+        {productList}
+      </div>
     </>
   );
 };
