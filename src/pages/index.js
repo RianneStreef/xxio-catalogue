@@ -6,27 +6,28 @@ import { StaticImage } from "gatsby-plugin-image";
 import "../styles/index.css";
 
 const indexPage = (props) => {
-  // let categories = props.data.allContentfulMenuItem.nodes;
-  // console.log(props.data.allContentfulMenuItem.nodes.slug);
-  // const categoriesList = categories.map((category) => {
-  //   return (
-  //     <Link to={category.slug} key={category.nodes.id}>
-  //       <h2>{category.nodes.categoryTitle}</h2>
-  //       <img
-  //         src={category.nodes.categoryImage.file.url}
-  //         alt={category.node.categoryImageAlt}
-  //       />
-  //     </Link>
-  //   );
-  // });
-  // return (
-  //   <div className="categories-page">
-  //     <StaticImage src="../images/logo.jpg" alt="Srixon Logo" />
-  //     <div className="categories-list">{categoriesList}</div>
-  //   </div>
-  // );
+  let categories = props.data.allContentfulMenuItem.nodes;
 
-  <div>Hello</div>;
+  console.log(props.data.allContentfulMenuItem.nodes);
+
+  const categoriesList = categories.map((category) => {
+    return (
+      <Link to={category.slug} key={category.id}>
+        <h2>{category.categoryTitle}</h2>
+        <img
+          src={category.categoryImage.file.url}
+          alt={category.categoryImageAlt}
+        />
+      </Link>
+    );
+  });
+
+  return (
+    <div className="categories-page">
+      <StaticImage src="../images/logo.jpg" alt="Srixon Logo" />
+      <div className="categories-list">{categoriesList}</div>
+    </div>
+  );
 };
 
 export const categoriesQuery = graphql`
