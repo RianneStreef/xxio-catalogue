@@ -5,10 +5,8 @@ import { StaticImage } from "gatsby-plugin-image";
 
 import "../styles/index.css";
 
-const indexPage = (props) => {
+const IndexPage = (props) => {
   let categories = props.data.allContentfulMenuItem.nodes;
-
-  console.log(props.data.allContentfulMenuItem.nodes);
 
   const categoriesList = categories.map((category) => {
     return (
@@ -31,21 +29,21 @@ const indexPage = (props) => {
 };
 
 export const categoriesQuery = graphql`
-  query MyQuery {
+  query categoriesQuery {
     allContentfulMenuItem {
       nodes {
+        id
         slug
+        categoryImageAlt
+        categoryTitle
         categoryImage {
           file {
             url
           }
         }
-        categoryImageAlt
-        categoryTitle
-        id
       }
     }
   }
 `;
 
-export default indexPage;
+export default IndexPage;
