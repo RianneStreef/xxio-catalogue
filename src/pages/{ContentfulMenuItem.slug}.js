@@ -3,6 +3,8 @@ import { graphql } from "gatsby";
 
 import ballMatrix from "../images/Golf-Ball-MATRIX-v3.jpg";
 
+import Layout from "../components/Layout";
+
 import "../styles/categories.css";
 
 const CategoryPage = (props) => {
@@ -45,12 +47,16 @@ const CategoryPage = (props) => {
             alt={product.productImageAlt}
           />
           <h4 className="product-list-title">{product.productName}</h4>
+          {product.new ? <p className="new">new!</p> : null}
+
+          {productList}
         </div>
       );
     });
 
   return (
     <>
+      <div></div>
       <div>{categoryInfo}</div>
       <div className="product-list">
         {slug === "balls" ? (
@@ -94,6 +100,7 @@ export const categoryQuery = graphql`
     allContentfulProduct {
       nodes {
         id
+        new
         productCategory
         productName
         categorySlug
@@ -107,4 +114,5 @@ export const categoryQuery = graphql`
   }
 `;
 
+CategoryPage.Layout = Layout;
 export default CategoryPage;

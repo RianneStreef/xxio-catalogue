@@ -1,8 +1,16 @@
 .product-listing {
   display: flex;
-  
+
 }
 
 .product-list-image {
   width: 10%;
+}
+
+.new {
+  color: red;
+  font-weight: bold;
+  display: inline;
+  margin-top: 21px;
+  margin-left: 10px;
 }

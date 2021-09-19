@@ -3,6 +3,9 @@ import { graphql, Link } from "gatsby";
 
 import { StaticImage } from "gatsby-plugin-image";
 import headerDemoDay from "../images/Header-Demoday.jpeg";
+import download from "../images/icon-download-v2.png";
+
+import Layout from "../components/Layout";
 
 import "../styles/index.css";
 
@@ -23,20 +26,38 @@ const IndexPage = (props) => {
   });
 
   return (
-    <div className="categories-page">
-      <StaticImage src="../images/logo.jpg" alt="Srixon Logo" />
-      <div className="categories-list">
-        {categoriesList}
-        <Link to="/demo-day" className="category-list-link">
-          <h2 className="category-list-title">Demo Day</h2>
-          <img
-            src={headerDemoDay}
-            alt="Srixon Demo Days"
-            className="category-list-image"
-          />
-        </Link>
+    <>
+      <div className="categories-page">
+        <StaticImage
+          src="../images/logo.jpg"
+          alt="Srixon Logo"
+          className="header-logo"
+        />
+        <div className="categories-list">
+          {categoriesList}
+          <Link to="/demo-day" className="category-list-link">
+            <h2 className="category-list-title">Demo Day</h2>
+            <img
+              src={headerDemoDay}
+              alt="Srixon Demo Days"
+              className="category-list-image"
+            />
+          </Link>
+        </div>
       </div>
-    </div>
+      <div class="download">
+        <p class="save-message" id="save-message">
+          <i>Don't forget to save the Srixon EU Catalogue on you home screen</i>
+        </p>
+
+        <div class="add-button">
+          <img src={download} />
+        </div>
+      </div>
+      <p class="copyright">
+        ©️ 2021 Sumitomo Rubber Industries, Ltd. ALL RIGHTS Reserved.
+      </p>
+    </>
   );
 };
 
@@ -58,4 +79,5 @@ export const categoriesQuery = graphql`
   }
 `;
 
+IndexPage.Layout = Layout;
 export default IndexPage;
