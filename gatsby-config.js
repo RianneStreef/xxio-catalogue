@@ -9,6 +9,18 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `"Srixon EU & Uk Catalogue"`,
+        short_name: `Srixon`,
+        start_url: `/`,
+        background_color: `#e30613`,
+        theme_color: `#3367D6`,
+        display: `fullscreen`,
+        icon: `./src/images/icon.png`,
+      },
+    },
+    {
       resolve: "gatsby-source-contentful",
       options: {
         accessToken: process.env.GATSBY_CONTENTFUL_TOKEN,

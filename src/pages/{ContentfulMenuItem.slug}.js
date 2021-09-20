@@ -1,5 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faHome } from "@fortawesome/free-solid-svg-icons";
 
 import ballMatrix from "../images/Golf-Ball-MATRIX-v3.jpg";
 
@@ -14,11 +16,15 @@ const CategoryPage = (props) => {
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;
 
-  console.log("slug");
-  console.log(slug);
-
-  console.log("category");
-  console.log(props.data.allContentfulMenuItem.nodes[0].category);
+  const categoryTitle = categories
+    .filter((category) => category.category === slug)
+    .map((category) => {
+      return (
+        <div key={category.id}>
+          <h1>{category.categoryTitle}</h1>
+        </div>
+      );
+    });
 
   const categoryInfo = categories
     .filter((category) => category.category === slug)
@@ -26,12 +32,16 @@ const CategoryPage = (props) => {
       return (
         <div key={category.id}>
           <img
+            className="category-info-image"
             src={category.categoryImage.file.url}
             alt={category.categoryImageAlt}
           />
-          <h2>{category.categoryTitle}</h2>
-          <h3>{category.categoryUnderTitle}</h3>
-          <p>{category.categoryIntroText.categoryIntroText}</p>
+          <div className="padding">
+            <h2>{category.categoryUnderTitle}</h2>
+            <p className="category-intro-text">
+              {category.categoryIntroText.categoryIntroText}
+            </p>
+          </div>
         </div>
       );
     });
@@ -46,31 +56,41 @@ const CategoryPage = (props) => {
             src={product.productImage.file.url}
             alt={product.productImageAlt}
           />
-          <h4 className="product-list-title">{product.productName}</h4>
+          <p className="product-list-title">{product.productName}</p>
           {product.new ? <p className="new">new!</p> : null}
-
-          {productList}
         </div>
       );
     });
 
   return (
     <>
-      <div></div>
-      <div>{categoryInfo}</div>
-      <div className="product-list">
-        {slug === "balls" ? (
-          <div className="product-listing">
-            <img
-              className="product-list-image"
-              src={ballMatrix}
-              alt="Srixon Golf Ball Matrix"
-            />
-            <h4 className="product-list-title">Srixon Golf Ball Matrix</h4>
-          </div>
-        ) : null}
+      <div className="category-title">
+        <FontAwesomeIcon
+          className="navigation"
+          icon={faChevronLeft}
+          size="2x"
+        />
 
-        {productList}
+        <p> {categoryTitle}</p>
+        <FontAwesomeIcon className="navigation" icon={faHome} size="2x" />
+      </div>
+
+      <div>{categoryInfo}</div>
+      <div className="padding">
+        <div className="product-list">
+          {slug === "balls" ? (
+            <div className="product-listing">
+              <img
+                className="product-list-image"
+                src={ballMatrix}
+                alt="Srixon Golf Ball Matrix"
+              />
+              <p className="product-list-title">Srixon Golf Ball Matrix</p>
+            </div>
+          ) : null}
+
+          {productList}
+        </div>
       </div>
     </>
   );
