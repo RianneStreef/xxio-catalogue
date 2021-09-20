@@ -68,6 +68,7 @@ a {
 .add-button {
   display: flex;
   justify-content: center;
+  display: none;
 }
 
 .add-button img {
