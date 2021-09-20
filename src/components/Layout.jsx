@@ -1,5 +1,5 @@
 import React from "react";
-import { GlobalMetaTags } from "./GlobalMetaTags";
+import { Helmet } from "react-helmet";
 
 import "../styles/global.css";
 
@@ -11,7 +11,10 @@ const Layout = ({ children }) => {
   );
   return (
     <div className="layout">
-      <GlobalMetaTags />
+      <Helmet>
+        <title>Srixon EU & UK Catalogue</title>
+        <link rel="manifest" href="../../manifest.webmanifest.json" />{" "}
+      </Helmet>
       <section className="content">{childrenWithProps}</section>
     </div>
   );
