@@ -10,7 +10,7 @@ import Layout from "../components/Layout";
 import "../styles/categories.css";
 
 const CategoryPage = (props) => {
-  console.log(props.params);
+  console.log(props);
 
   let categories = props.data.allContentfulMenuItem.nodes;
   let products = props.data.allContentfulProduct.nodes;
@@ -40,11 +40,11 @@ const CategoryPage = (props) => {
             {category.categoryUnderTitle ? (
               <h2>{category.categoryUnderTitle}</h2>
             ) : null}
-            {category.categoryIntroText.categoryIntroText ? (
+            {/* {category.categoryIntroText.categoryIntroText ? (
               <p className="category-intro-text">
                 {category.categoryIntroText.categoryIntroText}
               </p>
-            ) : null}
+            ) : null} */}
           </div>
         </div>
       );
