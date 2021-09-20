@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faHome } from "@fortawesome/free-solid-svg-icons";
 
@@ -69,14 +69,17 @@ const CategoryPage = (props) => {
   return (
     <>
       <div className="category-title">
-        <FontAwesomeIcon
-          className="navigation"
-          icon={faChevronLeft}
-          size="2x"
-        />
-
+        <Link to="/">
+          <FontAwesomeIcon
+            className="navigation"
+            icon={faChevronLeft}
+            size="2x"
+          />
+        </Link>
         <p> {categoryTitle}</p>
-        <FontAwesomeIcon className="navigation" icon={faHome} size="2x" />
+        <Link to="/">
+          <FontAwesomeIcon className="navigation" icon={faHome} size="2x" />
+        </Link>
       </div>
 
       <div>{categoryInfo}</div>
