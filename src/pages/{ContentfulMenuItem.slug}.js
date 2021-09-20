@@ -37,10 +37,11 @@ const CategoryPage = (props) => {
             alt={category.categoryImageAlt}
           />
           <div className="padding">
-            <h2>{category.categoryUnderTitle}</h2>
-            <p className="category-intro-text">
-              {category.categoryIntroText.categoryIntroText}
-            </p>
+            {category.categoryUnderTitle ? (
+              <p className="category-intro-text">
+                {category.categoryIntroText.categoryIntroText}
+              </p>
+            ) : null}
           </div>
         </div>
       );
