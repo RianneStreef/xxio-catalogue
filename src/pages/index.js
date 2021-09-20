@@ -51,7 +51,7 @@ const IndexPage = (props) => {
         </p>
 
         <div class="add-button">
-          <img src={download} />
+          <img src={download} alt="add app to home screen" />
         </div>
       </div>
       <p class="copyright">

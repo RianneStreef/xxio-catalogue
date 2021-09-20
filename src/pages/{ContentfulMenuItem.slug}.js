@@ -36,7 +36,7 @@ const CategoryPage = (props) => {
             src={category.categoryImage.file.url}
             alt={category.categoryImageAlt}
           />
-          <div className="padding">
+          {/* <div className="padding">
             {category.categoryUnderTitle ? (
               <h2>{category.categoryUnderTitle}</h2>
             ) : null}
@@ -45,7 +45,7 @@ const CategoryPage = (props) => {
                 {category.categoryIntroText}
               </p>
             ) : null}
-          </div>
+          </div> */}
         </div>
       );
     });
@@ -54,15 +54,20 @@ const CategoryPage = (props) => {
     .filter((product) => product.productCategory === slug)
     .map((product) => {
       return (
-        <div key={product.id} className="product-listing">
+        <Link
+          to={`/${product.productName}`}
+          key={product.id}
+          className="product-listing"
+        >
           <img
             className="product-list-image"
             src={product.productImage.file.url}
             alt={product.productImageAlt}
           />
+
           <p className="product-list-title">{product.productName}</p>
           {product.new ? <p className="new">new!</p> : null}
-        </div>
+        </Link>
       );
     });
 
