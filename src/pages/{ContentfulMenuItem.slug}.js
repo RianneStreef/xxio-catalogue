@@ -40,11 +40,11 @@ const CategoryPage = (props) => {
             {category.categoryUnderTitle ? (
               <h2>{category.categoryUnderTitle}</h2>
             ) : null}
-            {/* {category.categoryIntroText ? (
+            {category.categoryIntroText.categoryIntroText ? (
               <p className="category-intro-text">
-                {category.categoryIntroText}
+                {category.categoryIntroText.categoryIntroText}
               </p>
-            ) : null} */}
+            ) : null}
           </div>
         </div>
       );
