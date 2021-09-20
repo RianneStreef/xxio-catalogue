@@ -36,16 +36,16 @@ const CategoryPage = (props) => {
             src={category.categoryImage.file.url}
             alt={category.categoryImageAlt}
           />
-          {/* <div className="padding">
+          <div className="padding">
             {category.categoryUnderTitle ? (
               <h2>{category.categoryUnderTitle}</h2>
             ) : null}
-            {category.categoryIntroText ? (
+            {/* {category.categoryIntroText ? (
               <p className="category-intro-text">
                 {category.categoryIntroText}
               </p>
-            ) : null}
-          </div> */}
+            ) : null} */}
+          </div>
         </div>
       );
     });
