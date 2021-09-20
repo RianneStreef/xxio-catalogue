@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 
 import "../styles/global.css";
 
@@ -11,10 +10,6 @@ const Layout = ({ children }) => {
   );
   return (
     <div className="layout">
-      <Helmet>
-        <title>Srixon EU & UK Catalogue</title>
-        <link rel="manifest" href="../../manifest.webmanifest.json" />{" "}
-      </Helmet>
       <section className="content">{childrenWithProps}</section>
     </div>
   );

@@ -6,6 +6,7 @@ import headerDemoDay from "../images/Header-Demoday.jpeg";
 import download from "../images/icon-download-v2.png";
 
 import Layout from "../components/Layout";
+import { Helmet } from "react-helmet";
 
 import "../styles/index.css";
 
@@ -28,6 +29,10 @@ const IndexPage = (props) => {
   return (
     <>
       <div className="categories-page">
+        <Helmet>
+          <title>Srixon EU & UK Catalogue</title>
+          <link rel="manifest" href="../../manifest.webmanifest.json" />{" "}
+        </Helmet>
         <StaticImage
           src="../images/logo.jpg"
           alt="Srixon Logo"
