@@ -81,7 +81,7 @@ const CategoryPage = (props) => {
             size="2x"
           />
         </Link>
-        <p> {categoryTitle}</p>
+        <div> {categoryTitle}</div>
         <Link to="/">
           <FontAwesomeIcon className="navigation" icon={faHome} size="2x" />
         </Link>

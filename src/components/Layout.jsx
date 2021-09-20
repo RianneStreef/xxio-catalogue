@@ -1,4 +1,5 @@
 import React from "react";
+import { GlobalMetaTags } from "./GlobalMetaTags";
 
 import "../styles/global.css";
 
@@ -10,6 +11,7 @@ const Layout = ({ children }) => {
   );
   return (
     <div className="layout">
+      <GlobalMetaTags />
       <section className="content">{childrenWithProps}</section>
     </div>
   );
