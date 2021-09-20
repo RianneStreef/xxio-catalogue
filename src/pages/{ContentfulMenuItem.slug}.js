@@ -39,7 +39,7 @@ const CategoryPage = (props) => {
           <div className="padding">
             {category.categoryUnderTitle ? (
               <p className="category-intro-text">
-                {category.categoryIntroText.categoryIntroText}
+                {category.categoryIntroText}
               </p>
             ) : null}
           </div>
