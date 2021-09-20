@@ -54,11 +54,7 @@ const CategoryPage = (props) => {
     .filter((product) => product.productCategory === slug)
     .map((product) => {
       return (
-        <Link
-          to={`/${product.productName}`}
-          key={product.id}
-          className="product-listing"
-        >
+        <Link to={product.slug} key={product.id} className="product-listing">
           <img
             className="product-list-image"
             src={product.productImage.file.url}
@@ -135,6 +131,7 @@ export const categoryQuery = graphql`
         new
         productCategory
         productName
+        slug
         categorySlug
         productImage {
           file {
