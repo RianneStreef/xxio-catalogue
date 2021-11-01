@@ -15,13 +15,18 @@ const IndexPage = (props) => {
 
   const categoriesList = categories.map((category) => {
     return (
-      <Link to={category.slug} key={category.id} className="category-list-link">
+      <Link
+        to={category.slug}
+        key={category.id}
+        className="category-list-link"
+        style={{
+          backgroundImage: `url(${category.categoryImage.file.url})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
         <h2 className="category-list-title">{category.categoryTitle}</h2>
-        <img
-          className="category-list-image"
-          src={category.categoryImage.file.url}
-          alt={category.categoryImageAlt}
-        />
       </Link>
     );
   });
@@ -40,13 +45,17 @@ const IndexPage = (props) => {
         />
         <div className="categories-list">
           {categoriesList}
-          <Link to="/demo-day" className="category-list-link">
+          <Link
+            to="/demo-day"
+            className="category-list-link"
+            style={{
+              backgroundImage: `url(${headerDemoDay})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            }}
+          >
             <h2 className="category-list-title">Demo Day</h2>
-            <img
-              src={headerDemoDay}
-              alt="Srixon Demo Days"
-              className="category-list-image"
-            />
           </Link>
         </div>
       </div>
@@ -68,7 +77,7 @@ const IndexPage = (props) => {
 
 export const categoriesQuery = graphql`
   query categoriesQuery {
-    allContentfulMenuItem {
+    allContentfulMenuItem(sort: { fields: index }) {
       nodes {
         id
         slug

@@ -8,14 +8,36 @@ body {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 2;
+  color: #808080;
 }
 
 h1 {
   margin: 0;
 }
 
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+}
+
+img {
+  width: 100%;
+}
+
 .padding {
   padding: 10px;
+}
+
+.nav-link {
+  width: 10%;
+}
+
+.nav-icon-back {
+  width: 30%;
+  margin: 10px;
+}
+
+.nav-icon-home {
+  width: 70%;
 }
