@@ -36,7 +36,6 @@ const IndexPage = (props) => {
       <div className="categories-page">
         <Helmet>
           <title>Srixon EU & UK Catalogue</title>
-          {/* <link rel="manifest" href="../../manifest.webmanifest.json" />{" "} */}
         </Helmet>
         <StaticImage
           src="../images/logo.jpg"

@@ -17,7 +17,7 @@ module.exports = {
         background_color: `#e30613`,
         theme_color: `#3367D6`,
         display: `fullscreen`,
-        orientation: `portrait`,
+        // orientation: `portrait`,
         icon: `./src/images/icon.png`,
       },
     },
