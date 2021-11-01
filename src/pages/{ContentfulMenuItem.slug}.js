@@ -125,9 +125,10 @@ export const categoryQuery = graphql`
       }
     }
 
-    allContentfulProduct {
+    allContentfulProduct(sort: { fields: index }) {
       nodes {
         id
+        index
         new
         productCategory
         productName

@@ -19,6 +19,7 @@ const ProductPage = (props) => {
   const productTitle = products
     .filter((product) => product.slug === `/${slug}`)
     .map((product) => {
+      console.log(product);
       return (
         <div key={product.id}>
           <h1 className="product-title">{product.productName}</h1>
@@ -32,8 +33,6 @@ const ProductPage = (props) => {
       const slideImages = product.headerImgs.map((headerImg) => {
         return { url: headerImg.file.url };
       });
-
-      console.log(slideImages);
 
       return (
         <div key={product.id}>
@@ -56,7 +55,7 @@ const ProductPage = (props) => {
           </div>
           <h2>{product.productName}</h2>
           {product.productUndertitle && <h3>{product.productUndertitle}</h3>}
-          {product.productIntro && <p>{product.productIntro}</p>}
+          {product.productIntro && <p>{product.productIntro.productIntro}</p>}
           {product.techTitle1 && (
             <div>
               <h4>Technology</h4>
@@ -79,7 +78,7 @@ const ProductPage = (props) => {
               <p>{product.techDescription3}</p>
             </div>
           )}
-          {product.specs.file.url && (
+          {product.specs && (
             <div>
               <h4>{`Srixon ${product.productName} specs`}</h4>
               <img src={product.specs.file.url} className="specs-img" />
@@ -91,11 +90,16 @@ const ProductPage = (props) => {
               <p>{product.colors}</p>
             </div>
           )}
-          <h4>{`Srixon ${product.productName} price`}</h4>
-          <p>
-            {product.euro} &euro; / {product.swiss} CHF / {product.kroner} SEK /{" "}
-            {product.pound} &#163;
-          </p>
+          {product.euro && (
+            <>
+              <h4>{`Srixon ${product.productName} price`}</h4>
+              <p>
+                {product.euro} &euro; / {product.swiss} CHF / {product.kroner}{" "}
+                SEK / {product.pound} &#163;
+              </p>
+            </>
+          )}
+          {product.availableWhen && <p>In store in {product.availableWhen}</p>}
         </div>
       );
     });
@@ -129,7 +133,9 @@ export const productQuery = graphql`
             url
           }
         }
-        productIntro
+        productIntro {
+          productIntro
+        }
         productName
         productUndertitle
         slug
@@ -170,6 +176,7 @@ export const productQuery = graphql`
             url
           }
         }
+        availableWhen
       }
     }
   }
