@@ -61,21 +61,21 @@ const ProductPage = (props) => {
               <h4>Technology</h4>
               <img src={product.techImg1.file.url} />
               <h5>{product.techTitle1}</h5>
-              <p>{product.techDescription1}</p>
+              <p>{product.techDescription1.techDescription1}</p>
             </div>
           )}
           {product.techTitle2 && (
             <div>
               <img src={product.techImg2.file.url} />
               <h5>{product.techTitle2}</h5>
-              <p>{product.techDescription2}</p>
+              <p>{product.techDescription2.techDescription2}</p>
             </div>
           )}
           {product.techTitle3 && (
             <div>
               <img src={product.techImg3.file.url} />
               <h5>{product.techTitle3}</h5>
-              <p>{product.techDescription3}</p>
+              <p>{product.techDescription3.techDescription3}</p>
             </div>
           )}
           {product.specs && (
@@ -139,21 +139,27 @@ export const productQuery = graphql`
         productName
         productUndertitle
         slug
-        techDescription1
+        techDescription1 {
+          techDescription1
+        }
         techTitle1
         techImg1 {
           file {
             url
           }
         }
-        techDescription2
+        techDescription2 {
+          techDescription2
+        }
         techTitle2
         techImg2 {
           file {
             url
           }
         }
-        techDescription3
+        techDescription3 {
+          techDescription3
+        }
         techTitle3
         techImg3 {
           file {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faHome } from "@fortawesome/free-solid-svg-icons";
+import home from "../images/home.png";
+import back from "../images/back.png";
 
 import ballMatrix from "../images/Golf-Ball-MATRIX-v3.jpg";
 
@@ -40,11 +40,11 @@ const CategoryPage = (props) => {
             {category.categoryUnderTitle ? (
               <h2>{category.categoryUnderTitle}</h2>
             ) : null}
-            {/* {category.categoryIntroText.categoryIntroText ? (
+            {category.categoryIntroText ? (
               <p className="category-intro-text">
                 {category.categoryIntroText.categoryIntroText}
               </p>
-            ) : null} */}
+            ) : null}
           </div>
         </div>
       );
@@ -70,16 +70,12 @@ const CategoryPage = (props) => {
   return (
     <>
       <div className="category-title">
-        <Link to="/">
-          <FontAwesomeIcon
-            className="navigation"
-            icon={faChevronLeft}
-            size="2x"
-          />
+        <Link to="/" className="nav-link">
+          <img src={back} className="nav-icon-back" />
         </Link>
         <div> {categoryTitle}</div>
-        <Link to="/">
-          <FontAwesomeIcon className="navigation" icon={faHome} size="2x" />
+        <Link to="/" className="nav-link">
+          <img src={home} className="nav-icon-home" />{" "}
         </Link>
       </div>
 
