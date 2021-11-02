@@ -166,6 +166,15 @@ export const productQuery = graphql`
             url
           }
         }
+        techDescription4 {
+          techDescription4
+        }
+        techTitle4
+        techImg4 {
+          file {
+            url
+          }
+        }
         new
         specs {
           file {
