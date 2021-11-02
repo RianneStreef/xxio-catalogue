@@ -80,7 +80,7 @@ const ProductPage = (props) => {
           )}
           {product.techTitle4 && (
             <div>
-              {product.techImg4 && <img src={product.techImg4file.url} />}
+              {product.techImg4 && <img src={product.techImg4.file.url} />}
               <h5>{product.techTitle4}</h5>
               <p>{product.techDescription4.techDescription4}</p>
             </div>
