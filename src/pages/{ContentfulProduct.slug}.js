@@ -106,10 +106,57 @@ const ProductPage = (props) => {
           )}
           {product.euro && (
             <>
-              <h4>{`Srixon ${product.productName} price`}</h4>
+              {product.price1title == null ? (
+                <h4>{`Srixon ${product.productName} price`}</h4>
+              ) : (
+                <h4>{`Srixon ${product.price1title} price`}</h4>
+              )}
+
               <p>
                 {product.euro} &euro; / {product.swiss} CHF / {product.kroner}{" "}
                 SEK / {product.pound} &#163;
+              </p>
+            </>
+          )}
+          {product.euro2 && (
+            <>
+              {product.price2title == null ? (
+                <h4>{`Srixon ${product.productName} price`}</h4>
+              ) : (
+                <h4>{`Srixon ${product.price2title} price`}</h4>
+              )}
+
+              <p>
+                {product.euro2} &euro; / {product.swiss2} CHF /{" "}
+                {product.kroner2} SEK / {product.pound2} &#163;
+              </p>
+            </>
+          )}
+          {product.euro3 && (
+            <>
+              {product.price3title == null ? (
+                <h4>{`Srixon ${product.productName} price`}</h4>
+              ) : (
+                <h4>{`Srixon ${product.price3title} price`}</h4>
+              )}
+
+              <p>
+                {product.euro3} &euro; / {product.swiss3} CHF /{" "}
+                {product.kroner3} SEK / {product.pound3} &#163;
+              </p>
+            </>
+          )}
+          {product.euro4 && (
+            <>
+              {product.price4title == null ? (
+                <h4>{`Srixon ${product.productName} price`}</h4>
+              ) : (
+                <h4>{`Srixon ${product.price4title} price`}</h4>
+              )}
+
+              <p>
+                {product.euro4} &euro; / {product.swiss4} CHF /{" "}
+                {product.kroner4} SEK / {product.pound4} &#163;
               </p>
             </>
           )}
@@ -137,84 +184,102 @@ const ProductPage = (props) => {
 
 export const productQuery = graphql`
   query productQuery {
-    allContentfulProduct {
+    allContentfulProduct(sort: { fields: index }) {
       nodes {
+        productName
+        availableWhen
         categorySlug
+        colors
+        euro
+        euro2
+        euro3
+        euro4
+        headerImgs {
+          file {
+            url
+          }
+        }
         id
+        index
+        kroner
+        kroner2
+        kroner3
+        kroner4
+        new
+        pound
+        pound2
+        pound3
+        pound4
+        price1title
+        price2title
+        price3title
+        price4title
         productCategory
         productImage {
           file {
             url
           }
         }
-        productIntro {
-          productIntro
-        }
-        productName
         productUndertitle
         slug
-        techDescription1 {
-          techDescription1
-        }
-        techTitle1
-        techImg1 {
-          file {
-            url
-          }
-        }
-        techDescription2 {
-          techDescription2
-        }
-        techTitle2
-        techImg2 {
-          file {
-            url
-          }
-        }
-        techDescription3 {
-          techDescription3
-        }
-        techTitle3
-        techImg3 {
-          file {
-            url
-          }
-        }
-        techDescription4 {
-          techDescription4
-        }
-        techTitle4
-        techImg4 {
-          file {
-            url
-          }
-        }
-        techDescription5 {
-          techDescription5
-        }
-        techTitle5
-        techImg5 {
-          file {
-            url
-          }
-        }
-        new
         specs {
           file {
             url
           }
         }
-        colors
-        euro
-        kroner
         swiss
-        pound
-        headerImgs {
+        swiss2
+        swiss3
+        swiss4
+        techDescription1 {
+          techDescription1
+        }
+        techDescription2 {
+          techDescription2
+        }
+        techDescription3 {
+          techDescription3
+        }
+        techDescription4 {
+          techDescription4
+        }
+        techDescription5 {
+          techDescription5
+        }
+        techDescription6 {
+          techDescription6
+        }
+        techImg1 {
           file {
             url
           }
         }
-        availableWhen
+        techImg2 {
+          file {
+            url
+          }
+        }
+        techImg3 {
+          file {
+            url
+          }
+        }
+        techImg4 {
+          file {
+            url
+          }
+        }
+        techImg5 {
+          file {
+            url
+          }
+        }
+        techTitle1
+        techTitle2
+        techTitle3
+        techTitle4
+        techTitle5
+        techTitle6
       }
     }
   }

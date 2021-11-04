@@ -4,10 +4,14 @@ import home from "../images/home.png";
 import back from "../images/back.png";
 
 import ballMatrix from "../images/Golf-Ball-MATRIX-v3.jpg";
+import customShafts from "../images/custom.jpg";
 
 import Layout from "../components/Layout";
 
 import "../styles/categories.css";
+
+import golfBallMatrix from "../images/Golf-Ball-MATRIX-v3.pdf";
+import customShaftsPDF from "../images/Custom-Shafts-v2.pdf";
 
 const CategoryPage = (props) => {
   console.log(props);
@@ -51,7 +55,7 @@ const CategoryPage = (props) => {
     });
 
   const productList = products
-    .filter((product) => product.productCategory === slug)
+    .filter((product) => product.categorySlug === slug)
     .map((product) => {
       return (
         <Link to={product.slug} key={product.id} className="product-listing">
@@ -83,17 +87,33 @@ const CategoryPage = (props) => {
       <div className="padding">
         <div className="product-list">
           {slug === "balls" ? (
-            <div className="product-listing">
+            <a href={golfBallMatrix} target="blank" className="product-listing">
               <img
                 className="product-list-image"
                 src={ballMatrix}
                 alt="Srixon Golf Ball Matrix"
               />
+
               <p className="product-list-title">Srixon Golf Ball Matrix</p>
-            </div>
+            </a>
           ) : null}
 
           {productList}
+          {slug === "clubs" ? (
+            <a
+              href={customShaftsPDF}
+              target="blank"
+              className="product-listing"
+            >
+              <img
+                className="product-list-image"
+                src={customShafts}
+                alt="Srixon Custom Shafts"
+              />
+
+              <p className="product-list-title">Custom Shafts</p>
+            </a>
+          ) : null}
         </div>
       </div>
     </>
@@ -126,7 +146,6 @@ export const categoryQuery = graphql`
         id
         index
         new
-        productCategory
         productName
         slug
         categorySlug
