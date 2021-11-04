@@ -8,20 +8,20 @@ module.exports = {
     title: "srixon-catalogue",
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Srixon EU & Uk Catalogue`,
-        short_name: `Srixon`,
-        start_url: `/`,
-        background_color: `#e30613`,
-        theme_color: `#3367D6`,
-        display: `fullscreen`,
-        // orientation: `portrait`,
-        icon: `./src/images/icon.png`,
-      },
-    },
-    "gatsby-plugin-offline",
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Srixon EU & Uk Catalogue`,
+    //     short_name: `Srixon`,
+    //     start_url: `/`,
+    //     background_color: `#e30613`,
+    //     theme_color: `#3367D6`,
+    //     display: `fullscreen`,
+    //     // orientation: `portrait`,
+    //     icon: `./src/images/icon.png`,
+    //   },
+    // },
+    // "gatsby-plugin-offline",
     {
       resolve: "gatsby-source-contentful",
       options: {
