@@ -214,7 +214,6 @@ export const productQuery = graphql`
         price2title
         price3title
         price4title
-        productCategory
         productImage {
           file {
             url
