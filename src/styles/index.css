@@ -1,79 +1,95 @@
-.categories-page {
-  background-image: url("../images//bg-image.jpg");
+.loading-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../images/loader.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 0;
-  margin: 0;
-  transition: background-image 1000ms linear;
-  background-color: rgba(227, 6, 19, 0.2);
-  min-height: 100vh;
-  margin-top: auto;
-  margin-bottom: auto;
-  background-size: cover;
-  padding: 5px;
 }
 
-.categories-list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-
+.lds-default {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
 }
-
-.category-list-link {
-  margin: 3px 0;
-  height: 15vh;
+.lds-default div {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  animation: lds-default 1.2s linear infinite;
 }
-
-.category-list-title {
-  background-color: rgb(0, 0, 0, 0.7);
-  padding: 5px;
-  color: #ffffff;
-  font-size: 1rem;
-  margin: 0;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
+.lds-default div:nth-child(1) {
+  animation-delay: 0s;
+  top: 37px;
+  left: 66px;
 }
-
-.category-list-title:visited {
-  color: #fff;
-  text-decoration: none;
+.lds-default div:nth-child(2) {
+  animation-delay: -0.1s;
+  top: 22px;
+  left: 62px;
 }
-.category-list-image {
-  max-width: 100%
+.lds-default div:nth-child(3) {
+  animation-delay: -0.2s;
+  top: 11px;
+  left: 52px;
 }
-
-.header-logo {
-  margin-bottom: 5px;
+.lds-default div:nth-child(4) {
+  animation-delay: -0.3s;
+  top: 7px;
+  left: 37px;
 }
-
-a {
-  color: #fff;
-  text-decoration: none;
+.lds-default div:nth-child(5) {
+  animation-delay: -0.4s;
+  top: 11px;
+  left: 22px;
 }
-
-.save-message {
-  text-align: center;
-  margin-bottom: 0;
-  font-size: 0.7rem;
+.lds-default div:nth-child(6) {
+  animation-delay: -0.5s;
+  top: 22px;
+  left: 11px;
 }
-
-.copyright {
-  font-size: 0.6rem;
-  text-align: center;
+.lds-default div:nth-child(7) {
+  animation-delay: -0.6s;
+  top: 37px;
+  left: 7px;
 }
-
-.add-button {
-  display: flex;
-  justify-content: center;
-  display: none;
+.lds-default div:nth-child(8) {
+  animation-delay: -0.7s;
+  top: 52px;
+  left: 11px;
 }
-
-.add-button img {
-  margin-top: 15px;
-  max-width: 200px;
-  pointer-events: auto;
+.lds-default div:nth-child(9) {
+  animation-delay: -0.8s;
+  top: 62px;
+  left: 22px;
+}
+.lds-default div:nth-child(10) {
+  animation-delay: -0.9s;
+  top: 66px;
+  left: 37px;
+}
+.lds-default div:nth-child(11) {
+  animation-delay: -1s;
+  top: 62px;
+  left: 52px;
+}
+.lds-default div:nth-child(12) {
+  animation-delay: -1.1s;
+  top: 52px;
+  left: 62px;
+}
+@keyframes lds-default {
+  0%, 20%, 80%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
 }

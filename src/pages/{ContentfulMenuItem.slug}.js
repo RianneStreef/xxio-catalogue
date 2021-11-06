@@ -74,9 +74,9 @@ const CategoryPage = (props) => {
   return (
     <>
       <div className="category-title">
-        <Link to="/" className="nav-link">
+        <a href="javascript:history.back()" className="nav-link">
           <img src={back} className="nav-icon-back" />
-        </Link>
+        </a>
         <div> {categoryTitle}</div>
         <Link to="/" className="nav-link">
           <img src={home} className="nav-icon-home" />{" "}
