@@ -77,35 +77,45 @@ const ProductPage = (props) => {
           {product.techTitle1 && (
             <div className="tech-description">
               <h4>Technology</h4>
-              {product.techImg1 && <img src={product.techImg1.file.url} />}
+              {product.techImg1 && (
+                <img src={product.techImg1.file.url} className="tech-img" />
+              )}
               <h5>{product.techTitle1}</h5>
               <p>{product.techDescription1.techDescription1}</p>
             </div>
           )}
           {product.techTitle2 && (
             <div className="tech-description">
-              {product.techImg2 && <img src={product.techImg2.file.url} />}
+              {product.techImg2 && (
+                <img src={product.techImg2.file.url} className="tech-img" />
+              )}
               <h5>{product.techTitle2}</h5>
               <p>{product.techDescription2.techDescription2}</p>
             </div>
           )}
           {product.techTitle3 && (
             <div className="tech-description">
-              {product.techImg3 && <img src={product.techImg3.file.url} />}
+              {product.techImg3 && (
+                <img src={product.techImg3.file.url} className="tech-img" />
+              )}
               <h5>{product.techTitle3}</h5>
               <p>{product.techDescription3.techDescription3}</p>
             </div>
           )}
           {product.techTitle4 && (
             <div className="tech-description">
-              {product.techImg4 && <img src={product.techImg4.file.url} />}
+              {product.techImg4 && (
+                <img src={product.techImg4.file.url} className="tech-img" />
+              )}
               <h5>{product.techTitle4}</h5>
               <p>{product.techDescription4.techDescription4}</p>
             </div>
           )}
           {product.techTitle5 && (
             <div className="tech-description">
-              {product.techImg5 && <img src={product.techImg5.file.url} />}
+              {product.techImg5 && (
+                <img src={product.techImg5.file.url} className="tech-img" />
+              )}
               <h5>{product.techTitle5}</h5>
               <p>{product.techDescription5.techDescription5}</p>
             </div>
@@ -205,6 +215,9 @@ export const productQuery = graphql`
     allContentfulProduct(sort: { fields: index }) {
       nodes {
         productName
+        productIntro {
+          productIntro
+        }
         availableWhen
         categorySlug
         colors
