@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Layout from "../components/Layout";
 
 const IndexPage = () => {
   useEffect(() => {
@@ -26,4 +27,5 @@ const IndexPage = () => {
   );
 };
 
+IndexPage.Layout = Layout;
 export default IndexPage;

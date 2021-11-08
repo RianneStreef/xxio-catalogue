@@ -37,27 +37,45 @@ const ProductPage = (props) => {
       return (
         <div key={product.id}>
           <div className="slide-container">
-            <Slide>
-              {slideImages.map((slideImage, index) => (
-                <div className="each-slide" key={index}>
-                  <div
-                    style={{
-                      backgroundImage: `url(${slideImage.url})`,
-                      backgroundSize: "contain",
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "center",
-                      height: "20vh",
-                    }}
-                  />
-                </div>
-              ))}
-            </Slide>
+            {slideImages.length > 1 ? (
+              <Slide>
+                {slideImages.map((slideImage, index) => (
+                  <div className="each-slide" key={index}>
+                    <div
+                      style={{
+                        backgroundImage: `url(${slideImage.url})`,
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        height: "20vh",
+                      }}
+                    />
+                  </div>
+                ))}
+              </Slide>
+            ) : (
+              <div>
+                {slideImages.map((slideImage, index) => (
+                  <div className="each-slide" key={index}>
+                    <div
+                      style={{
+                        backgroundImage: `url(${slideImage.url})`,
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        height: "20vh",
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <h2>{product.productName}</h2>
           {product.productUndertitle && <h3>{product.productUndertitle}</h3>}
           {product.productIntro && <p>{product.productIntro.productIntro}</p>}
           {product.techTitle1 && (
-            <div>
+            <div className="tech-description">
               <h4>Technology</h4>
               {product.techImg1 && <img src={product.techImg1.file.url} />}
               <h5>{product.techTitle1}</h5>
@@ -65,28 +83,28 @@ const ProductPage = (props) => {
             </div>
           )}
           {product.techTitle2 && (
-            <div>
+            <div className="tech-description">
               {product.techImg2 && <img src={product.techImg2.file.url} />}
               <h5>{product.techTitle2}</h5>
               <p>{product.techDescription2.techDescription2}</p>
             </div>
           )}
           {product.techTitle3 && (
-            <div>
+            <div className="tech-description">
               {product.techImg3 && <img src={product.techImg3.file.url} />}
               <h5>{product.techTitle3}</h5>
               <p>{product.techDescription3.techDescription3}</p>
             </div>
           )}
           {product.techTitle4 && (
-            <div>
+            <div className="tech-description">
               {product.techImg4 && <img src={product.techImg4.file.url} />}
               <h5>{product.techTitle4}</h5>
               <p>{product.techDescription4.techDescription4}</p>
             </div>
           )}
           {product.techTitle5 && (
-            <div>
+            <div className="tech-description">
               {product.techImg5 && <img src={product.techImg5.file.url} />}
               <h5>{product.techTitle5}</h5>
               <p>{product.techDescription5.techDescription5}</p>

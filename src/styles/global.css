@@ -25,11 +25,17 @@ h1, h2, h3, h4 {
 }
 
 img {
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
 }
+
 
 .padding {
   padding: 10px;
+}
+
+.padding-sides {
+  padding: 0 20px;
 }
 
 .nav-link {

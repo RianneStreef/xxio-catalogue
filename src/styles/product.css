@@ -5,3 +5,8 @@
 .product-title {
   font-size: 15px;
 }
+
+.tech-description {
+  display: flex;
+  flex-direction: column;
+}
