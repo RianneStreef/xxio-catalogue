@@ -141,8 +141,9 @@ const ProductPage = (props) => {
               )}
 
               <p>
-                {product.euro} &euro; / {product.swiss} CHF / {product.kroner}{" "}
-                SEK / {product.pound} &#163;
+                {product.euro.toFixed(2)} &euro; / {product.swiss.toFixed(2)}{" "}
+                CHF / {product.kroner.toFixed(2)} SEK /{" "}
+                {product.pound.toFixed(2)} &#163;
               </p>
             </>
           )}
@@ -155,8 +156,9 @@ const ProductPage = (props) => {
               )}
 
               <p>
-                {product.euro2} &euro; / {product.swiss2} CHF /{" "}
-                {product.kroner2} SEK / {product.pound2} &#163;
+                {product.euro2.toFixed(2)} &euro; / {product.swiss2.toFixed(2)}{" "}
+                CHF / {product.kroner2.toFixed(2)} SEK /{" "}
+                {product.pound2.toFixed(2)} &#163;
               </p>
             </>
           )}
@@ -169,8 +171,9 @@ const ProductPage = (props) => {
               )}
 
               <p>
-                {product.euro3} &euro; / {product.swiss3} CHF /{" "}
-                {product.kroner3} SEK / {product.pound3} &#163;
+                {product.euro3.toFixed(2)} &euro; / {product.swiss3.toFixed(2)}{" "}
+                CHF / {product.kroner3.toFixed(2)} SEK /{" "}
+                {product.pound3.toFixed(2)} &#163;
               </p>
             </>
           )}
@@ -183,8 +186,9 @@ const ProductPage = (props) => {
               )}
 
               <p>
-                {product.euro4} &euro; / {product.swiss4} CHF /{" "}
-                {product.kroner4} SEK / {product.pound4} &#163;
+                {product.euro4.toFixed(2)} &euro; / {product.swiss4.toFixed(2)}{" "}
+                CHF / {product.kroner4.toFixed(2)} SEK /{" "}
+                {product.pound4.toFixed(2)} &#163;
               </p>
             </>
           )}
