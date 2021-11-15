@@ -43,7 +43,7 @@ const CategoriesPage = (props) => {
         });
       });
 
-      if (addBtn.style.display == "block") {
+      if (addBtn.style.display == "flex") {
         saveMsg.style.display = "none";
       }
     });
