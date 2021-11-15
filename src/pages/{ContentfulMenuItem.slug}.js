@@ -76,7 +76,7 @@ const CategoryPage = (props) => {
           <img src={back} className="nav-icon-back" />
         </a>
         <div> {categoryTitle}</div>
-        <Link to="/" className="nav-link">
+        <Link to="/categories" className="nav-link">
           <img src={home} className="nav-icon-home" />{" "}
         </Link>
       </div>

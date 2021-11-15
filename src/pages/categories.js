@@ -27,8 +27,13 @@ const CategoriesPage = (props) => {
 
       addBtn.addEventListener("click", (e) => {
         // hide our user interface that shows our A2HS button
-        addBtn.style.display = "none";
-        saveMsg.style.display = "none";
+        {
+          addBtn && (addBtn.style.display = "none");
+        }
+
+        {
+          saveMsg && (saveMsg.style.display = "none");
+        }
 
         // Show the prompt
         deferredPrompt.prompt();

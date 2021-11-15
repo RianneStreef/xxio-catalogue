@@ -201,7 +201,7 @@ const ProductPage = (props) => {
           <img src={back} className="nav-icon-back" />
         </a>
         <div> {productTitle}</div>
-        <Link to="/" className="nav-link">
+        <Link to="/categories" className="nav-link">
           <img src={home} className="nav-icon-home" />{" "}
         </Link>
       </div>

@@ -31,6 +31,8 @@
   color: #808080;
   margin-left: 20px;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
 }
 
 .new {
