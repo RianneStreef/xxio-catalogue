@@ -15,9 +15,8 @@ module.exports = {
         short_name: "Srixon",
         start_url: "/",
         background_color: "#e30613",
-        theme_color: "#3367D6",
+        theme_color: "#FFFFFF",
         display: "fullscreen",
-        // orientation: `portrait`,
         icon: "./src/images/icon.png",
       },
     },
@@ -36,7 +35,6 @@ module.exports = {
     },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
-
     `gatsby-plugin-image`,
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
