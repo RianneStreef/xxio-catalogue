@@ -14,8 +14,6 @@ import golfBallMatrix from "../images/Golf-Ball-MATRIX-v3.pdf";
 import customShaftsPDF from "../images/Custom-Shafts-v2.pdf";
 
 const CategoryPage = (props) => {
-  console.log(props);
-
   let categories = props.data.allContentfulMenuItem.nodes;
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;

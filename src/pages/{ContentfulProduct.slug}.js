@@ -11,15 +11,12 @@ import home from "../images/home.png";
 import back from "../images/back.png";
 
 const ProductPage = (props) => {
-  console.log(props);
-
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;
 
   const productTitle = products
     .filter((product) => product.slug === `/${slug}`)
     .map((product) => {
-      console.log(product);
       return (
         <div key={product.id}>
           <h1 className="product-title">{product.productName}</h1>
