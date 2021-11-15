@@ -11,14 +11,13 @@ import { Helmet } from "react-helmet";
 import "../styles/index.css";
 
 const CategoriesPage = (props) => {
-  console.log("script running");
-
-  let deferredPrompt;
-  const addBtn = document.querySelector(".add-button");
-  const saveMsg = document.getElementById("save-message");
-
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", (e) => {
+      console.log("script running");
+
+      let deferredPrompt;
+      const addBtn = document.querySelector(".add-button");
+      const saveMsg = document.getElementById("save-message");
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       e.preventDefault();
       // Stash the event so it can be triggered later.
