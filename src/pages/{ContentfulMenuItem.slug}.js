@@ -18,6 +18,8 @@ const CategoryPage = (props) => {
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;
 
+  console.log(products);
+
   const categoryTitle = categories
     .filter((category) => category.category === slug)
     .map((category) => {

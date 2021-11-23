@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import ReactMarkdown from "react-markdown";
+
 import Layout from "../components/Layout";
 
 import { Slide } from "react-slideshow-image";
@@ -11,6 +13,7 @@ import home from "../images/home.png";
 import back from "../images/back.png";
 
 const ProductPage = (props) => {
+  console.log(props);
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;
 
@@ -70,7 +73,11 @@ const ProductPage = (props) => {
           </div>
           <h2>{product.productName}</h2>
           {product.productUndertitle && <h3>{product.productUndertitle}</h3>}
-          {product.productIntro && <p>{product.productIntro.productIntro}</p>}
+          {product.productIntro && (
+            <ReactMarkdown className="product-intro">
+              {product.productIntro.productIntro}
+            </ReactMarkdown>
+          )}
           {product.techTitle1 && (
             <div className="tech-description">
               <h4>Technology</h4>
