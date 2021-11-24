@@ -4,9 +4,15 @@
 
 .product-title {
   font-size: 15px;
+  text-align: center;
 }
 
 .tech-description {
   display: flex;
   flex-direction: column;
+}
+
+li {
+  font-size: 13px;
+  margin: 10px;
 }
