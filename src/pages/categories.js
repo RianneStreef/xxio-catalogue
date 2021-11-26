@@ -13,8 +13,6 @@ import "../styles/index.css";
 const CategoriesPage = (props) => {
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", (e) => {
-      console.log("script running");
-
       let deferredPrompt;
       const addBtn = document.querySelector(".add-button");
       const saveMsg = document.getElementById("save-message");

@@ -13,7 +13,6 @@ import home from "../images/home.png";
 import back from "../images/back.png";
 
 const ProductPage = (props) => {
-  console.log(props);
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;
 
