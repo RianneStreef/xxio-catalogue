@@ -16,6 +16,8 @@ const ProductPage = (props) => {
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;
 
+  console.log(products);
+
   const productTitle = products
     .filter((product) => product.slug === `/${slug}`)
     .map((product) => {
@@ -29,6 +31,13 @@ const ProductPage = (props) => {
   const productInfo = products
     .filter((product) => product.slug === `/${slug}`)
     .map((product) => {
+      function currencyFormat(price) {
+        console.log("formatting currency");
+        return price
+          .toFixed(2)
+          .replace(".", ",")
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+      }
       const slideImages = product.headerImgs.map((headerImg) => {
         return { url: headerImg.file.url };
       });
@@ -62,7 +71,7 @@ const ProductPage = (props) => {
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center",
-                        height: "20vh",
+                        height: "30vh",
                       }}
                     />
                   </div>
@@ -70,7 +79,7 @@ const ProductPage = (props) => {
               </div>
             )}
           </div>
-          <h2>{product.productName}</h2>
+          {/* <h2>{product.productName}</h2> */}
           {product.productUndertitle && <h3>{product.productUndertitle}</h3>}
           {product.productIntro && (
             <ReactMarkdown className="product-intro">
@@ -79,53 +88,18 @@ const ProductPage = (props) => {
           )}
           {product.techTitle1 && (
             <div className="tech-description">
-              <h4>Technology</h4>
+              <h3>Technology</h3>
               {product.techImg1 && (
                 <img src={product.techImg1.file.url} className="tech-img" />
               )}
               <h5>{product.techTitle1}</h5>
-              <p>{product.techDescription1.techDescription1}</p>
+              <p>{product.techText1.techText1}</p>
             </div>
           )}
-          {product.techTitle2 && (
-            <div className="tech-description">
-              {product.techImg2 && (
-                <img src={product.techImg2.file.url} className="tech-img" />
-              )}
-              <h5>{product.techTitle2}</h5>
-              <p>{product.techDescription2.techDescription2}</p>
-            </div>
-          )}
-          {product.techTitle3 && (
-            <div className="tech-description">
-              {product.techImg3 && (
-                <img src={product.techImg3.file.url} className="tech-img" />
-              )}
-              <h5>{product.techTitle3}</h5>
-              <p>{product.techDescription3.techDescription3}</p>
-            </div>
-          )}
-          {product.techTitle4 && (
-            <div className="tech-description">
-              {product.techImg4 && (
-                <img src={product.techImg4.file.url} className="tech-img" />
-              )}
-              <h5>{product.techTitle4}</h5>
-              <p>{product.techDescription4.techDescription4}</p>
-            </div>
-          )}
-          {product.techTitle5 && (
-            <div className="tech-description">
-              {product.techImg5 && (
-                <img src={product.techImg5.file.url} className="tech-img" />
-              )}
-              <h5>{product.techTitle5}</h5>
-              <p>{product.techDescription5.techDescription5}</p>
-            </div>
-          )}
+
           {product.specs && (
             <div>
-              <h4>{`Srixon ${product.productName} specs`}</h4>
+              <h3>{`XXIO ${product.productName} specs`}</h3>
               <img src={product.specs.file.url} className="specs-img" />
             </div>
           )}
@@ -138,60 +112,64 @@ const ProductPage = (props) => {
           {product.euro && (
             <>
               {product.price1title == null ? (
-                <h4>{`Srixon ${product.productName} price`}</h4>
+                <h3>{`XXIO ${product.productName} price`}</h3>
               ) : (
-                <h4>{`Srixon ${product.price1title} price`}</h4>
+                <h3>{`XXIO ${product.price1title} price`}</h3>
               )}
 
               <p>
-                {product.euro.toFixed(2)} &euro; / {product.swiss.toFixed(2)}{" "}
-                CHF / {product.kroner.toFixed(2)} SEK /{" "}
-                {product.pound.toFixed(2)} &#163;
+                {currencyFormat(product.euro)} &euro;/{" "}
+                {currencyFormat(product.swiss)} CHF /{" "}
+                {currencyFormat(product.kroner)} SEK /{" "}
+                {currencyFormat(product.pound)} &#163;
               </p>
             </>
           )}
           {product.euro2 && (
             <>
               {product.price2title == null ? (
-                <h4>{`Srixon ${product.productName} price`}</h4>
+                <h3>{`XXIO ${product.productName} price`}</h3>
               ) : (
-                <h4>{`Srixon ${product.price2title} price`}</h4>
+                <h3>{`XXIO${product.price2title} price`}</h3>
               )}
 
               <p>
-                {product.euro2.toFixed(2)} &euro; / {product.swiss2.toFixed(2)}{" "}
-                CHF / {product.kroner2.toFixed(2)} SEK /{" "}
-                {product.pound2.toFixed(2)} &#163;
+                {currencyFormat(product.euro2)} &euro;/{" "}
+                {currencyFormat(product.swiss2)} CHF /{" "}
+                {currencyFormat(product.kroner2)} SEK /{" "}
+                {currencyFormat(product.pound2)} &#163;
               </p>
             </>
           )}
           {product.euro3 && (
             <>
               {product.price3title == null ? (
-                <h4>{`Srixon ${product.productName} price`}</h4>
+                <h3>{`XXIO ${product.productName} price`}</h3>
               ) : (
-                <h4>{`Srixon ${product.price3title} price`}</h4>
+                <h3>{`XXIO ${product.price3title} price`}</h3>
               )}
 
               <p>
-                {product.euro3.toFixed(2)} &euro; / {product.swiss3.toFixed(2)}{" "}
-                CHF / {product.kroner3.toFixed(2)} SEK /{" "}
-                {product.pound3.toFixed(2)} &#163;
+                {currencyFormat(product.euro3)} &euro;/{" "}
+                {currencyFormat(product.swiss3)} CHF /{" "}
+                {currencyFormat(product.kroner3)} SEK /{" "}
+                {currencyFormat(product.pound3)} &#163;
               </p>
             </>
           )}
           {product.euro4 && (
             <>
               {product.price4title == null ? (
-                <h4>{`Srixon ${product.productName} price`}</h4>
+                <h3>{`XXIO ${product.productName} price`}</h3>
               ) : (
-                <h4>{`Srixon ${product.price4title} price`}</h4>
+                <h3>{`XXIO ${product.price4title} price`}</h3>
               )}
 
               <p>
-                {product.euro4.toFixed(2)} &euro; / {product.swiss4.toFixed(2)}{" "}
-                CHF / {product.kroner4.toFixed(2)} SEK /{" "}
-                {product.pound4.toFixed(2)} &#163;
+                {currencyFormat(product.euro4)} &euro;/{" "}
+                {currencyFormat(product.swiss4)} CHF /{" "}
+                {currencyFormat(product.kroner4)} SEK /{" "}
+                {currencyFormat(product.pound4)} &#163;
               </p>
             </>
           )}
@@ -225,7 +203,7 @@ export const productQuery = graphql`
         productIntro {
           productIntro
         }
-        availableWhen
+        new
         categorySlug
         colors
         euro
@@ -268,55 +246,16 @@ export const productQuery = graphql`
         swiss2
         swiss3
         swiss4
-        techDescription1 {
-          techDescription1
-        }
-        techDescription2 {
-          techDescription2
-        }
-        techDescription3 {
-          techDescription3
-        }
-        techDescription4 {
-          techDescription4
-        }
-        techDescription5 {
-          techDescription5
-        }
-        techDescription6 {
-          techDescription6
-        }
+
         techImg1 {
           file {
             url
           }
         }
-        techImg2 {
-          file {
-            url
-          }
+
+        techText1 {
+          techText1
         }
-        techImg3 {
-          file {
-            url
-          }
-        }
-        techImg4 {
-          file {
-            url
-          }
-        }
-        techImg5 {
-          file {
-            url
-          }
-        }
-        techTitle1
-        techTitle2
-        techTitle3
-        techTitle4
-        techTitle5
-        techTitle6
       }
     }
   }

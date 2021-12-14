@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { graphql, Link } from "gatsby";
 
-import { StaticImage } from "gatsby-plugin-image";
 import headerDemoDay from "../images/Header-Demoday.jpeg";
 import download from "../images/icon-download-v2.png";
 
 import Layout from "../components/Layout";
 import { Helmet } from "react-helmet";
+
+import logo from "../images/logo.jpeg";
 
 import "../styles/index.css";
 
@@ -54,6 +55,8 @@ const CategoriesPage = (props) => {
 
   let categories = props.data.allContentfulMenuItem.nodes;
 
+  console.log(categories);
+
   const categoriesList = categories.map((category) => {
     return (
       <Link
@@ -76,13 +79,11 @@ const CategoriesPage = (props) => {
     <>
       <div className="categories-page">
         <Helmet>
-          <title>Srixon EU & UK Catalogue</title>
+          <title>XXIO EU & UK Catalogue</title>
         </Helmet>
-        <StaticImage
-          src="../images/logo.jpg"
-          alt="Srixon Logo"
-          className="header-logo"
-        />
+        <div className="logo-container">
+          <img src={logo} className="logo" />
+        </div>
         <div className="categories-list">
           {categoriesList}
           <Link
@@ -101,7 +102,7 @@ const CategoriesPage = (props) => {
       </div>
       <div className="download">
         <p className="save-message" id="save-message">
-          <i>Don't forget to save the Srixon EU Catalogue on you home screen</i>
+          <i>Don't forget to save the XXIO EU Catalogue on you home screen</i>
         </p>
 
         <div className="add-button" id="add-button">

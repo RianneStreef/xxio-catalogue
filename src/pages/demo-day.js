@@ -30,7 +30,7 @@ const DemoDayPage = () => {
         <div className="flag-container">
           <a
             className="demo-link"
-            href="https://www.srixoneurope.com/en/event-days.html"
+            href="https://www.xxio.eu/event-days.html"
             target="blank"
           >
             <img className="flag-link" src={EUFlag} alt="european flag" />
@@ -38,7 +38,7 @@ const DemoDayPage = () => {
           </a>
           <a
             className="demo-link"
-            href="https://www.srixon.co.uk/en/event-days.html"
+            href="https://www.xxiouk.com/en/event-days.html"
             target="blank"
           >
             <img className="flag-link" src={UKFlag} alt="united kingdom flag" />

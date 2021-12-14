@@ -3,27 +3,21 @@ import { Link, graphql } from "gatsby";
 import home from "../images/home.png";
 import back from "../images/back.png";
 
-import ballMatrix from "../images/Golf-Ball-MATRIX-v3.jpg";
-import customShafts from "../images/custom.jpg";
-
 import Layout from "../components/Layout";
 
 import "../styles/categories.css";
 
-import golfBallMatrix from "../images/Golf-Ball-MATRIX-v3.pdf";
-import customShaftsPDF from "../images/Custom-Shafts-v2.pdf";
-
-const CategoryPage = (props) => {
-  let categories = props.data.allContentfulMenuItem.nodes;
+const SubCategoryPage = (props) => {
   let accessoiresSubs = props.data.allContentfulAccessoiresSubCategory.nodes;
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;
 
-  console.log("accessoiresSubs");
-  console.log(accessoiresSubs);
+  console.log("products");
+  console.log(products);
+
   console.log(slug);
 
-  const categoryTitle = categories
+  const categoryTitle = accessoiresSubs
     .filter((category) => category.category === slug)
     .map((category) => {
       return (
@@ -33,7 +27,7 @@ const CategoryPage = (props) => {
       );
     });
 
-  const categoryInfo = categories
+  const categoryInfo = accessoiresSubs
     .filter((category) => category.category === slug)
     .map((category) => {
       return (
@@ -57,22 +51,21 @@ const CategoryPage = (props) => {
       );
     });
 
-  const accessoiresSubsList = accessoiresSubs.map((accessoiresSub) => {
+  const accessoiresList = accessoiresSubs.map((accessoiresSub) => {
     return (
-      <Link to={accessoiresSub.slug} key={accessoiresSub.id}>
-        <div
-          className="accessoires-sub"
-          style={{
-            backgroundImage: `url(${accessoiresSub.categoryImage.file.url})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-          }}
-        >
-          <h2 className="category-list-title">
-            {accessoiresSub.categoryTitle}
-          </h2>
-        </div>
+      <Link
+        to={accessoiresSub.slug}
+        key={accessoiresSub.id}
+        className="category-list-link"
+        style={{
+          backgroundImage: `url(${accessoiresSub.categoryImage.file.url})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          height: "20vh",
+        }}
+      >
+        <h2 className="category-list-title">{accessoiresSub.categoryTitle}</h2>
       </Link>
     );
   });
@@ -106,9 +99,10 @@ const CategoryPage = (props) => {
         </Link>
       </div>
 
-      {slug === "accessories" ? (
+      {slug === "accessoires" ? (
         <>
-          <div>{accessoiresSubsList}</div>
+          <div>{categoryInfo}</div>
+          <div>{accessoiresList}</div>
         </>
       ) : (
         <>
@@ -123,7 +117,7 @@ const CategoryPage = (props) => {
 };
 
 export const categoryQuery = graphql`
-  query categoryQuery {
+  query subCategoryQuery {
     allContentfulMenuItem {
       nodes {
         id
@@ -163,7 +157,6 @@ export const categoryQuery = graphql`
       nodes {
         id
         index
-        new
         productName
         slug
         categorySlug
@@ -177,5 +170,5 @@ export const categoryQuery = graphql`
   }
 `;
 
-CategoryPage.Layout = Layout;
-export default CategoryPage;
+SubCategoryPage.Layout = Layout;
+export default SubCategoryPage;

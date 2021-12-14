@@ -28,13 +28,21 @@ h4 {
   font-size: 14px;
 }
 
+h5 {
+  margin-bottom: 0;
+}
+
 h1, h2, h3, h4 {
   text-transform: uppercase;
 }
 
+
+
 img {
-  width: 70%;
+  width: 100%;
 }
+
+
 
 .tech-img {
   margin: 0 auto;
@@ -55,8 +63,8 @@ img {
 }
 
 .nav-icon-back {
-  width: 30%;
-  margin: 10px;
+  width: 50%;
+ 
 }
 
 .nav-icon-home {

@@ -5,16 +5,16 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
-    title: "srixon-catalogue",
+    title: "xxio-catalogue",
   },
   plugins: [
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Srixon EU & Uk Catalogue",
-        short_name: "Srixon",
+        name: "XXIO EU & Uk Catalogue",
+        short_name: "XXIO",
         start_url: "/",
-        background_color: "#e30613",
+        background_color: "#000",
         theme_color: "#FFFFFF",
         display: "fullscreen",
         icon: "./src/images/icon.png",
