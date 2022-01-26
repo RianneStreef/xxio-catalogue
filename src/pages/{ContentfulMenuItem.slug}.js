@@ -3,15 +3,8 @@ import { Link, graphql } from "gatsby";
 import home from "../images/home.png";
 import back from "../images/back.png";
 
-import ballMatrix from "../images/Golf-Ball-MATRIX-v3.jpg";
-import customShafts from "../images/custom.jpg";
-
 import Layout from "../components/Layout";
-
 import "../styles/categories.css";
-
-import golfBallMatrix from "../images/Golf-Ball-MATRIX-v3.pdf";
-import customShaftsPDF from "../images/Custom-Shafts-v2.pdf";
 
 const CategoryPage = (props) => {
   let categories = props.data.allContentfulMenuItem.nodes;
@@ -128,7 +121,6 @@ export const categoryQuery = graphql`
       nodes {
         id
         slug
-        category
         categoryImageAlt
         categoryTitle
         categoryImage {
@@ -136,7 +128,7 @@ export const categoryQuery = graphql`
             url
           }
         }
-        categoryUnderTitle
+
         categoryIntroText {
           categoryIntroText
         }

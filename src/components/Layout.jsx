@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../styles/global.css";
 
 const Layout = ({ children }) => {
+  const [collection, setCollection] = useState("");
+
   const childrenWithProps = React.Children.map(children, (child) =>
     React.cloneElement(child, {
       // props to drill
+      collection,
+      setCollection,
     })
   );
   return (

@@ -12,11 +12,6 @@ const SubCategoryPage = (props) => {
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;
 
-  console.log("products");
-  console.log(products);
-
-  console.log(slug);
-
   const categoryTitle = accessoiresSubs
     .filter((category) => category.category === slug)
     .map((category) => {
@@ -122,7 +117,6 @@ export const categoryQuery = graphql`
       nodes {
         id
         slug
-        category
         categoryImageAlt
         categoryTitle
         categoryImage {
@@ -130,7 +124,7 @@ export const categoryQuery = graphql`
             url
           }
         }
-        categoryUnderTitle
+
         categoryIntroText {
           categoryIntroText
         }

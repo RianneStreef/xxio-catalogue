@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { graphql, Link } from "gatsby";
 
-import headerDemoDay from "../images/Header-Demoday.jpeg";
+import headerDemoDay from "../images/header-demoday_2022.jpg";
 import download from "../images/icon-download-v2.png";
 
 import Layout from "../components/Layout";
@@ -12,6 +12,8 @@ import logo from "../images/logo.jpeg";
 import "../styles/index.css";
 
 const CategoriesPage = (props) => {
+  console.log("categories props");
+  console.log(props);
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", (e) => {
       let deferredPrompt;
@@ -47,15 +49,13 @@ const CategoriesPage = (props) => {
         });
       });
 
-      if (addBtn.style.display == "flex") {
+      if (addBtn.style.display === "flex") {
         saveMsg.style.display = "none";
       }
     });
   });
 
   let categories = props.data.allContentfulMenuItem.nodes;
-
-  console.log(categories);
 
   const categoriesList = categories.map((category) => {
     return (
@@ -80,9 +80,11 @@ const CategoriesPage = (props) => {
       <div className="categories-page">
         <Helmet>
           <title>XXIO EU & UK Catalogue</title>
+          <meta name="robots" content="noindex" />
+          <meta name="robots" content="nofollow" />
         </Helmet>
         <div className="logo-container">
-          <img src={logo} className="logo" />
+          <img src={logo} className="logo" alt="Logo" />
         </div>
         <div className="categories-list">
           {categoriesList}
@@ -110,7 +112,7 @@ const CategoriesPage = (props) => {
         </div>
       </div>
       <p className="copyright">
-        ©️ 2021 Sumitomo Rubber Industries, Ltd. ALL RIGHTS Reserved.
+        ©️ 2022 Sumitomo Rubber Industries, Ltd. ALL RIGHTS Reserved.
       </p>
     </>
   );
