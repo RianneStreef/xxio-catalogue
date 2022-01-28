@@ -76,8 +76,12 @@ const SubCategoryPage = (props) => {
             alt={product.productImageAlt}
           />
 
-          <p className="product-list-title">{product.productName}</p>
-          {product.new ? <p className="new">new!</p> : null}
+          <div className="product-list-title">
+            <p>
+              {product.new ? <p className="new">new!</p> : null}
+              <p className="product-name">{product.productName}</p>
+            </p>
+          </div>
         </Link>
       );
     });
@@ -85,9 +89,9 @@ const SubCategoryPage = (props) => {
   return (
     <>
       <div className="category-title">
-        <a href="javascript:history.back()" className="nav-link">
+        <Link to="/soft-goods" className="nav-link">
           <img src={back} className="nav-icon-back" />
-        </a>
+        </Link>
         <div> {categoryTitle}</div>
         <Link to="/categories" className="nav-link">
           <img src={home} className="nav-icon-home" />{" "}
@@ -124,10 +128,6 @@ export const categoryQuery = graphql`
             url
           }
         }
-
-        categoryIntroText {
-          categoryIntroText
-        }
       }
     }
 
@@ -153,6 +153,8 @@ export const categoryQuery = graphql`
         index
         productName
         slug
+        new
+        availableWhen
         categorySlug
         productImage {
           file {

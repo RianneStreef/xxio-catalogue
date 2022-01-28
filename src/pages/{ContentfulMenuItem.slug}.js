@@ -1,20 +1,21 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import { Helmet } from "react-helmet";
+
 import home from "../images/home.png";
 import back from "../images/back.png";
 
 import Layout from "../components/Layout";
+
 import "../styles/categories.css";
 
 const CategoryPage = (props) => {
   let categories = props.data.allContentfulMenuItem.nodes;
-  let accessoiresSubs = props.data.allContentfulAccessoiresSubCategory.nodes;
+  let menSubs = props.data.allContentfulMenCollection.nodes;
+  let womenSubs = props.data.allContentfulLadiesCollection.nodes;
+  let softGoodsSubs = props.data.allContentfulAccessoiresSubCategory.nodes;
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;
-
-  console.log("accessoiresSubs");
-  console.log(accessoiresSubs);
-  console.log(slug);
 
   const categoryTitle = categories
     .filter((category) => category.category === slug)
@@ -50,21 +51,55 @@ const CategoryPage = (props) => {
       );
     });
 
-  const accessoiresSubsList = accessoiresSubs.map((accessoiresSub) => {
+  const menSubsList = menSubs.map((menSub) => {
     return (
-      <Link to={accessoiresSub.slug} key={accessoiresSub.id}>
+      <Link to={menSub.slug} key={menSub.id}>
         <div
           className="accessoires-sub"
           style={{
-            backgroundImage: `url(${accessoiresSub.categoryImage.file.url})`,
+            backgroundImage: `url(${menSub.categoryImage.file.url})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
           }}
         >
-          <h2 className="category-list-title">
-            {accessoiresSub.categoryTitle}
-          </h2>
+          <h2 className="category-list-title">{menSub.categoryTitle}</h2>
+        </div>
+      </Link>
+    );
+  });
+
+  const womenSubsList = womenSubs.map((womenSub) => {
+    return (
+      <Link to={womenSub.slug} key={womenSub.id}>
+        <div
+          className="accessoires-sub"
+          style={{
+            backgroundImage: `url(${womenSub.categoryImage.file.url})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        >
+          <h2 className="category-list-title">{womenSub.categoryTitle}</h2>
+        </div>
+      </Link>
+    );
+  });
+
+  const softGoodsSubsList = softGoodsSubs.map((softGoodsSub) => {
+    return (
+      <Link to={softGoodsSub.slug} key={softGoodsSub.id}>
+        <div
+          className="accessoires-sub"
+          style={{
+            backgroundImage: `url(${softGoodsSub.categoryImage.file.url})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        >
+          <h2 className="category-list-title">{softGoodsSub.categoryTitle}</h2>
         </div>
       </Link>
     );
@@ -81,63 +116,73 @@ const CategoryPage = (props) => {
             alt={product.productImageAlt}
           />
 
-          <p className="product-list-title">{product.productName}</p>
-          {product.new ? <p className="new">new!</p> : null}
+          <p>
+            {product.new ? <p className="new">new!</p> : null}
+            <p className="product-name">{product.productName}</p>
+          </p>
         </Link>
       );
     });
 
   return (
     <>
+      <Helmet>
+        <title>XXIO Golf EU & UK Catalogue</title>
+        <meta name="robots" content="noindex" />
+        <meta name="robots" content="nofollow" />
+      </Helmet>
       <div className="category-title">
-        <a href="javascript:history.back()" className="nav-link">
+        <Link to="/categories" className="nav-link">
           <img src={back} className="nav-icon-back" />
-        </a>
-        <div> {categoryTitle}</div>
+        </Link>
+        {slug === "men" ? <h1>Mens Collection</h1> : null}
+        {slug === "ladies" ? <h1>Ladies Collection</h1> : null}
+        {slug === "soft-goods" ? <h1>Soft Goods</h1> : null}
+        {slug !== "men" && slug !== "ladies" && slug !== "soft-goods" ? (
+          <div>{categoryTitle}</div>
+        ) : null}
         <Link to="/categories" className="nav-link">
           <img src={home} className="nav-icon-home" />{" "}
         </Link>
       </div>
+      <div className="menu-placeholder" />
 
-      {slug === "accessories" ? (
-        <>
-          <div>{accessoiresSubsList}</div>
-        </>
-      ) : (
+      {slug === "men" ? <div>{menSubsList}</div> : null}
+      {slug === "ladies" ? <div>{womenSubsList}</div> : null}
+
+      {slug === "soft-goods" ? <div>{softGoodsSubsList}</div> : null}
+
+      {slug === "balls" ? (
         <>
           <div>{categoryInfo}</div>
           <div className="padding">
             <div className="product-list">{productList}</div>
           </div>
         </>
-      )}
+      ) : null}
     </>
   );
 };
 
-export const categoryQuery = graphql`
-  query categoryQuery {
-    allContentfulMenuItem {
+export const menuItemsQuery = graphql`
+  query menuItemsQuery {
+    allContentfulAccessoiresSubCategory {
       nodes {
-        id
-        slug
-        categoryImageAlt
-        categoryTitle
+        category
         categoryImage {
           file {
             url
           }
         }
+        categoryImageAlt
 
-        categoryIntroText {
-          categoryIntroText
-        }
+        categoryTitle
+
+        slug
       }
     }
-
-    allContentfulAccessoiresSubCategory(sort: { fields: index }) {
+    allContentfulLadiesCollection {
       nodes {
-        id
         category
         categoryImage {
           file {
@@ -147,23 +192,46 @@ export const categoryQuery = graphql`
         categoryImageAlt
         categoryTitle
         slug
-        index
       }
     }
-
-    allContentfulProduct(sort: { fields: index }) {
+    allContentfulMenCollection {
       nodes {
-        id
+        category
+        categoryImage {
+          file {
+            url
+          }
+        }
+        categoryImageAlt
+        categoryTitle
         index
-        new
+        slug
+      }
+    }
+    allContentfulMenuItem {
+      nodes {
+        category
+        categoryImage {
+          file {
+            url
+          }
+        }
+        categoryImageAlt
+        categoryTitle
+        slug
+      }
+    }
+    allContentfulProduct {
+      nodes {
+        categorySlug
         productName
         slug
-        categorySlug
         productImage {
           file {
             url
           }
         }
+        productImageAlt
       }
     }
   }

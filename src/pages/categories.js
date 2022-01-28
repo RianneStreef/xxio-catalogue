@@ -7,7 +7,7 @@ import download from "../images/icon-download-v2.png";
 import Layout from "../components/Layout";
 import { Helmet } from "react-helmet";
 
-import logo from "../images/logo.jpeg";
+import logo from "../images/logo.svg";
 
 import "../styles/index.css";
 

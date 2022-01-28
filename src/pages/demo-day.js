@@ -24,7 +24,10 @@ const DemoDayPage = () => {
         </Link>
       </div>
       <div className="demo-day-links padding-sides">
-        <p>To find a Demo Day near you, follow one of the following links:</p>
+        <p className="demo-title">
+          To find a Demo Day near you, <br />
+          follow one of the following links:
+        </p>
         <hr className="separator" />
 
         <div className="flag-container">
