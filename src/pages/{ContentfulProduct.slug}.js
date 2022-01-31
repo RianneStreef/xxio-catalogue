@@ -280,7 +280,7 @@ export const productQuery = graphql`
         availableWhen
         euro
         euro2
-        euro3
+
         headerImgs {
           file {
             url
@@ -295,14 +295,14 @@ export const productQuery = graphql`
         index
         kroner
         kroner2
-        kroner3
+
         new
         pound
         pound2
-        pound3
+
         price1title
         price2title
-        price3title
+
         productImage {
           file {
             url
@@ -312,7 +312,7 @@ export const productQuery = graphql`
         slug
         swiss
         swiss2
-        swiss3
+
         techText1 {
           techText1
         }
