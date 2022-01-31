@@ -249,7 +249,6 @@ const ProductPage = (props) => {
     <>
       <Helmet>
         <title>XXIO EU & UK Catalogue</title>
-        <meta name="robots" content="noindex" />
         <meta name="robots" content="nofollow" />
       </Helmet>
 

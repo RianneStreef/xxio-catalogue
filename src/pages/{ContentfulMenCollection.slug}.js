@@ -4,6 +4,7 @@ import home from "../images/home.png";
 import back from "../images/back.png";
 
 import Layout from "../components/Layout";
+import { Helmet } from "react-helmet";
 
 import "../styles/categories.css";
 
@@ -69,16 +70,21 @@ const menSubCategoryPage = (props) => {
 
   return (
     <>
+      <Helmet>
+        <title>XXIO EU & UK Catalogue</title>
+        <meta name="robots" content="nofollow" />
+      </Helmet>
       <div className="category-title">
-        <Link to="/categories" className="nav-link">
+        <Link to="/men" className="nav-link">
           <img src={back} className="nav-icon-back" />
         </Link>
+
         <div> {categoryTitle}</div>
         <Link to="/categories" className="nav-link">
           <img src={home} className="nav-icon-home" />{" "}
         </Link>
       </div>
-
+      <div className="menu-placeholder" />
       <div>{categoryInfo}</div>
       <div className="padding">
         <div className="product-list">{productList}</div>

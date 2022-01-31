@@ -32,23 +32,25 @@ h5 {
   margin-bottom: 0;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   text-transform: uppercase;
 }
 
-
+ul {
+  color: #808080;
+  padding-left: 10px;
+}
 
 img {
   width: 100%;
 }
 
-
-
 .tech-img {
   margin: 0 auto;
-
 }
-
 
 .padding {
   padding: 10px;
@@ -64,10 +66,12 @@ img {
 
 .nav-icon-back {
   width: 50%;
- 
 }
 
 .nav-icon-home {
   width: 70%;
 }
 
+.menu-placeholder {
+  height: 55px;
+}

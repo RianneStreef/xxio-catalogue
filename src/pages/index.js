@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Layout from "../components/Layout";
+import { Helmet } from "react-helmet";
 
 const IndexPage = () => {
   useEffect(() => {
@@ -8,22 +9,28 @@ const IndexPage = () => {
     }, 1000);
   });
   return (
-    <div className="loading-page">
-      <div class="lds-default">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <>
+      <Helmet>
+        <title>XXIO EU & UK Catalogue</title>
+        <meta name="robots" content="nofollow" />
+      </Helmet>
+      <div className="loading-page">
+        <div class="lds-default">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

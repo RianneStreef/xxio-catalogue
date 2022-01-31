@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 
 import "../styles/demo-day.css";
 
+import { Helmet } from "react-helmet";
+
 import Layout from "../components/Layout";
 
 import home from "../images/home.png";
@@ -14,15 +16,20 @@ import UKFlag from "../images/UK-flag.svg";
 const DemoDayPage = () => {
   return (
     <>
+      <Helmet>
+        <title>XXIO EU & UK Catalogue</title>
+        <meta name="robots" content="nofollow" />
+      </Helmet>
       <div className="category-title">
-        <a href="javascript:history.back()" className="nav-link">
+        <Link to="/categories" className="nav-link">
           <img src={back} className="nav-icon-back" />
-        </a>
+        </Link>
         <div>Demo Days</div>
-        <Link to="/" className="nav-link">
+        <Link to="/categories" className="nav-link">
           <img src={home} className="nav-icon-home" />{" "}
         </Link>
       </div>
+      <div className="menu-placeholder" />
       <div className="demo-day-links padding-sides">
         <p className="demo-title">
           To find a Demo Day near you, <br />

@@ -128,7 +128,6 @@ const CategoryPage = (props) => {
     <>
       <Helmet>
         <title>XXIO Golf EU & UK Catalogue</title>
-        <meta name="robots" content="noindex" />
         <meta name="robots" content="nofollow" />
       </Helmet>
       <div className="category-title">

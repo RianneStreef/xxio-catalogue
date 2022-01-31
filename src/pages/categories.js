@@ -80,7 +80,6 @@ const CategoriesPage = (props) => {
       <div className="categories-page">
         <Helmet>
           <title>XXIO EU & UK Catalogue</title>
-          <meta name="robots" content="noindex" />
           <meta name="robots" content="nofollow" />
         </Helmet>
         <div className="logo-container">
