@@ -22,7 +22,12 @@ const ProductPage = (props) => {
     .filter((product) => product.slug === `/${slug}`)
     .map((product) => {
       return (
-        <Link to={`/${product.categorySlug}`} className="nav-link" alt="Back">
+        <Link
+          to={`/${product.categorySlug}`}
+          key={`/${product.categorySlug}`}
+          className="nav-link"
+          alt="Back"
+        >
           <img src={back} className="nav-icon-back" alt="Back" />
         </Link>
       );

@@ -116,10 +116,10 @@ const CategoryPage = (props) => {
             alt={product.productImageAlt}
           />
 
-          <p>
+          <div>
             {product.new ? <p className="new">new!</p> : null}
             <p className="product-name">{product.productName}</p>
-          </p>
+          </div>
         </Link>
       );
     });
@@ -137,7 +137,12 @@ const CategoryPage = (props) => {
         {slug === "men" ? <h1>Mens Collection</h1> : null}
         {slug === "ladies" ? <h1>Ladies Collection</h1> : null}
         {slug === "soft-goods" ? <h1>Soft Goods</h1> : null}
-        {slug !== "men" && slug !== "ladies" && slug !== "soft-goods" ? (
+        {slug === "soft-goods" ? <h1>Soft Goods</h1> : null}
+        {slug === "balls" ? <h1>Balls</h1> : null}
+        {slug !== "men" &&
+        slug !== "ladies" &&
+        slug !== "soft-goods" &&
+        slug !== "balls" ? (
           <div>{categoryTitle}</div>
         ) : null}
         <Link to="/categories" className="nav-link">

@@ -34,6 +34,7 @@
 .product-list-image {
   width: 25%;
   height: 25%;
+  margin-right: 10px;
 }
 
 .product-list-title {
