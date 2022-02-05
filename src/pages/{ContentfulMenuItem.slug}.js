@@ -137,7 +137,6 @@ const CategoryPage = (props) => {
         {slug === "men" ? <h1>Mens Collection</h1> : null}
         {slug === "ladies" ? <h1>Ladies Collection</h1> : null}
         {slug === "soft-goods" ? <h1>Soft Goods</h1> : null}
-        {slug === "soft-goods" ? <h1>Soft Goods</h1> : null}
         {slug === "balls" ? <h1>Balls</h1> : null}
         {slug !== "men" &&
         slug !== "ladies" &&
