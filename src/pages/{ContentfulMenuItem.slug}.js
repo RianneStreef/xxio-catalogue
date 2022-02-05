@@ -229,6 +229,7 @@ export const menuItemsQuery = graphql`
         categorySlug
         productName
         slug
+        new
         productImage {
           file {
             url
