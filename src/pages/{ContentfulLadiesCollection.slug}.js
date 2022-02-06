@@ -13,10 +13,6 @@ const womenSubCategoryPage = (props) => {
   let products = props.data.allContentfulProduct.nodes;
   let slug = props.params.slug;
 
-  console.log("ladies props");
-  console.log(womenSubs);
-  console.log(products);
-
   const categoryTitle = womenSubs
     .filter((category) => category.category === slug)
     .map((category) => {
