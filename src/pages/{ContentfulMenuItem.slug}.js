@@ -134,7 +134,7 @@ const CategoryPage = (props) => {
         <Link to="/categories" className="nav-link">
           <img src={back} className="nav-icon-back" />
         </Link>
-        {slug === "men" ? <h1>Mens Collection</h1> : null}
+        {slug === "men" ? <h1>Men Collection</h1> : null}
         {slug === "ladies" ? <h1>Ladies Collection</h1> : null}
         {slug === "soft-goods" ? <h1>Soft Goods</h1> : null}
         {slug === "balls" ? <h1>Balls</h1> : null}
